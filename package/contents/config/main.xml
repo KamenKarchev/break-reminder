@@ -6,5 +6,24 @@
         <entry name="focusMinutes" type="Int">
             <default>25</default>
         </entry>
+        <entry name="breakMinutes" type="Int">
+            <default>5</default>
+        </entry>
+        <entry name="denyGraceSeconds" type="Int">
+            <default>15</default>
+            <min>1</min>
+            <max>60</max>
+        </entry>
+        <entry name="korganizerEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="korganizerHelperPath" type="String">
+            <default>/home/kamen/SuperDesk/Project/break-reminder/korg-helper/build/break-reminder-korg-helper</default>
+        </entry>
+        <entry name="korganizerPollMinutes" type="Int">
+            <default>2</default>
+            <min>1</min>
+            <max>60</max>
+        </entry>
     </group>
 </kcfg>

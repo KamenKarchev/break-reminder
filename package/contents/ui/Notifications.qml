@@ -27,8 +27,23 @@ Item {
         urgency: Notification.HighUrgency
     }
 
+    Notification {
+        id: denyWarningNotification
+        componentName: "plasma_workspace"
+        eventId: "notification"
+        title: "Deny mode incoming"
+        iconName: Qt.resolvedUrl("../icons/break.svg")
+        flags: Notification.Persistent
+        urgency: Notification.HighUrgency
+    }
+
     function sendBreakNotification() {
         breakNotification.text = tips[Math.floor(Math.random() * tips.length)]
         breakNotification.sendEvent()
+    }
+
+    function sendDenyWarning(minutesBefore) {
+        denyWarningNotification.text = "Deny mode starts in " + minutesBefore + " minute" + (minutesBefore === 1 ? "" : "s") + " — wrap up now."
+        denyWarningNotification.sendEvent()
     }
 }
