@@ -12,6 +12,7 @@ Item {
     signal finished()
 
     readonly property string lockCheckCmd: "loginctl show-session \"$XDG_SESSION_ID\" -p LockedHint --value"
+    readonly property string suspendCmd: "systemctl suspend"
 
     function start(durationSeconds) {
         endTime = Date.now() + durationSeconds * 1000
@@ -85,7 +86,7 @@ Item {
         repeat: false
         onTriggered: {
             if (denyMode.active && Date.now() < denyMode.endTime) {
-                executable.connectSource("loginctl suspend")
+                executable.connectSource(denyMode.suspendCmd)
             }
         }
     }
